@@ -105,12 +105,11 @@ impl Tree {
                             Tree::insert_recursive(n, id, age, size);
                         }
                     }
-
-                    }
                 }
             }
         }
     }
+}
 
 
 #[cfg(test)]
@@ -119,16 +118,24 @@ mod tests {
 
     #[test]
     fn works_build_tree() {
-        let mut tree = Tree::new();
-        tree.insert(8);
-        tree.insert(10);
-        tree.insert(3);
-        tree.insert(1);
-        tree.insert(6);
-        tree.insert(4);
+        let mut female_tree = Tree::new();
+        female_tree.insert(1, 3, 2);
+        female_tree.insert(2,2,3);
+        female_tree.insert(3,1,4);
+        female_tree.insert(4,2,3);
 
-        assert_eq!(tree.root.is_some(),true);
-        println!("{:?}", tree);
+        let mut male_tree = Tree::new();
+        male_tree.insert(1, 3, 2);
+        male_tree.insert(2,2,3);
+        male_tree.insert(3,1,4);
+        male_tree.insert(4,2,3);
+
+
+        assert_eq!(female_tree.root.is_some(),true);
+        println!("{:?}", female_tree);
+
+        assert_eq!(male_tree.root.is_some(),true);
+        println!("{:?}", male_tree);
     }
 }
 
